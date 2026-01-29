@@ -1,8 +1,68 @@
-# microbit-de-tinyml
-TRON Programming Contest 2025: micro:bit de TinyML笙ｪ
+# micro:bit de TinyML♪: Data Collector for TinyML
 
-log
-https://www.personal-media.co.jp/book/tw/tw_index/384.html
-https://www.personal-media.co.jp/book/tw/data/384_mbit_list.zip
+## 概要
+本プログラムは，**micro:bit de TinyML♪** のサンプルプログラム構築に必要な，TinyMLの学習用データを収集・ログ出力するためのツールです．  
 
-TRONWARE VOL.207
+## 特徴
+- micro:bit内蔵の加速度センサデータを取得し，機械学習に適した形式に成形しコンソール出力します．
+- [TRONWAREの連載記事「micro:bitでμT-Kernel 3.0を動かそう」](https://www.t-engine4u.com/info/mbit/index.html)の第12回記事のサンプルプログラム(VOL.207掲載)を原典としています．
+- センサデータ取得に特化しており，TinyMLモジュール(≒NNabla C Runtime)は不要です．
+
+## ソースコード管理状況
+> **Current Version: v0.1.0**  
+> 本バージョンにおける主要ファイルの管理状態およびライセンス区分は以下の通りです．
+
+| ファイル名 | 状態 (Status) | 出典 / 備考 | ライセンス |
+| :--- | :--- | :--- | :--- |
+| `iic.h` | **Original** | Personal Media Corporation (384_mbit_list.zip) / ※再配布について個別許諾済|(個別許諾)|
+| `iic_reg.c` | **Original** | Personal Media Corporation (384_mbit_list.zip) / ※再配布について個別許諾済|(個別許諾)|
+| `nrf5_iic.c` | **Original** | Personal Media Corporation (384_mbit_list.zip) / ※再配布について個別許諾済|(個別許諾)|
+| `app_main.c` | **Original** | T3 WG of TRON Forum (384_mbit_list.zip)  / ※再配布について個別許諾済|(個別許諾)|
+
+### 状態の定義
+- **Original**: 出典元から取得したままの未改造状態
+- **Modified**: 出典元のコードをベースに，本プログラム用に改変を実施
+- **New**: ゆざ (@yuza-lab) により新規に書き起こされたソース
+
+> **Note**: 各ファイルの具体的なライセンス条項については，ソースファイル冒頭のヘッダコメントをご確認ください．
+
+## ビルド方法
+本プログラムのビルドには，**μT-Kernel 3.0のクロスコンパイル環境** および **micro:bit用ソースコード** が正常にセットアップされている必要があります．
+
+> [!TIP]
+> **ヒント: ビルドをスムーズに終えるために**  
+> micro:bit用のソースコード付属のサンプルプログラムのビルド成功で動作確認を終えた後，本プログラムのインポートおよびビルドを実施してください．  
+> 本プログラムのインポートが反映されない場合はEclipseでのRefresh やClean Project後にBuild Projectをお試しください．
+
+### 1. 本リポジトリに含まれるソースコードを，ローカル環境へ配置します．
+* **コピー元: application/logger/app_sample/ 内の全ファイル**
+* **コピー先: mtkernel_3/app_sample/**
+
+## 使用方法
+アプリ起動直後から，micro:bitのX-Y軸の加速度センサ値と共にボタン押下状態をログ出力します．  
+`x_acc, y_acc, btn_stat, (btn_stat累積値…0:1)`  
+
+btn_statは次の3値をとります．  
+**0. `Aボタン` 押下**  
+**1. `Bボタン` 押下**  
+**2. `無押下`**
+
+以上を踏まえ，micro:bitを水平に保持し `Aボタン` を押下，直立に保持し `Bボタン` を押下すれば，教師ラベル付データを得ることができます．
+
+> [!TIP]
+> **ヒント: 学習用CSVファイルのヘッダ行について**  
+> NNCのデータセットプレビューでは表示できているのに学習時に読込エラーが発生する場合，**ヘッダ行の項目名のタイポ**の可能性があります．  
+> 本リポリトジのサンプルCSVファイルのヘッダ行をコピペしてみてください．
+
+## バージョン履歴
+- **v0.1.0 (2026-01-29)**
+  - リポジトリの初期構成作成．
+
+## ライセンス
+本プログラムはマルチライセンスで構成されています．
+- 引用・転載しているソースコード：各提供元のライセンス（T-License 2.2等）に従います．
+- 本プログラム独自の成果物および改変部分：**Apache License 2.0** を適用します．
+詳細は各ファイルのヘッダを参照してください．
+
+---
+**Maintainer:** ゆざ (@yuza-lab)
