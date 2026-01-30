@@ -59,6 +59,11 @@ ifneq ($(strip $(C_DEPS)),)
 endif
 endif
 
+# for nnabla_c_runtime
+include mtkernel_3/lib/nnablart/runtime/subdir.mk
+include mtkernel_3/lib/nnablart/functions/subdir.mk
+include mtkernel_3/lib/nnablart/nnablart/subdir.mk
+
 # All EXE_FILE
 all: $(EXE_FILE).elf
 

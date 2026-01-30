@@ -1,3 +1,39 @@
+/**
+ * @file    config.h
+ * @brief   μT-Kernel 3.0 の改変 for "micro:bit de TinyML♪"
+ * Project: micro:bit de TinyML♪
+ * @author  Ken Sakamura (Original Author)
+ * @author  Modified by ゆざ (@yuza-lab)
+ * @version v0.93.0 (Based on Original v3.00.05)
+ * @date    2025-04-05 (Modified by ゆざ)
+ * @details
+ * 【ライセンスについて / License Notice】
+ * This file is a modified version of "micro T-Kernel 3.00.05".
+ * - The modifications by ゆざ (@yuza-lab) are licensed under the Apache License, Version 2.0.
+ * - The original portions remain licensed under the T-License 2.2.
+ * * 【改変内容 / Modification Details】
+ * - 変更: #define USE_FPU (0) を (1) に
+ * - 追記: #define PROHIBIT_DEF_SIZE_T (1)
+ */
+
+/* ======================================================================
+ * Modification by ゆざ (@yuza-lab)
+ * Copyright 2025 ゆざ (@yuza-lab)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ====================================================================== */
+
+/* Original Copyright Notice */
 /*
  *----------------------------------------------------------------------
  *    micro T-Kernel 3.00.05
@@ -140,7 +176,7 @@
 /* Use Co-Processor.
 　*  1: Valid  0: Invalid
  */
-#define	USE_FPU			(0)	/* Use FPU */
+#define	USE_FPU			(1)	/* Use FPU */	/* [@yuza-lab] v0.93.0 */
 #define	USE_DSP			(0)	/* Use DSP */
 
 /*---------------------------------------------------------------------- */
@@ -154,6 +190,9 @@
 　*  1: Valid  0: Invalid
  */
 #define USE_SDEV_DRV		(1)	/* Use Sample device driver */
+
+/*---------------------------------------------------------------------- */
+#define PROHIBIT_DEF_SIZE_T		(1)	/* [@yuza-lab] v0.93.0, for Change default definition of size_t */
 
 /*---------------------------------------------------------------------- */
 /*
