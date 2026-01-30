@@ -9,7 +9,7 @@
 - センサデータ取得に特化しており，TinyMLモジュール(≒NNabla C Runtime)は不要です．
 
 ## ソースコード管理状況
-> **Current Version: v0.1.0**  
+> **Current Version: v0.93.0**  
 > 本バージョンにおける主要ファイルの管理状態およびライセンス区分は以下の通りです．
 
 | ファイル名 | 状態 (Status) | 出典 / 備考 | ライセンス |
@@ -17,7 +17,7 @@
 | `iic.h` | **Original** | Personal Media Corporation (384_mbit_list.zip) / ※再配布について個別許諾済|(個別許諾)|
 | `iic_reg.c` | **Original** | Personal Media Corporation (384_mbit_list.zip) / ※再配布について個別許諾済|(個別許諾)|
 | `nrf5_iic.c` | **Original** | Personal Media Corporation (384_mbit_list.zip) / ※再配布について個別許諾済|(個別許諾)|
-| `app_main.c` | **Original** | T3 WG of TRON Forum (384_mbit_list.zip)  / ※再配布について個別許諾済|(個別許諾)|
+| `app_main.c` | **Modified** | T3 WG of TRON Forum (384_mbit_list.zip)  / ※再配布について個別許諾済|(個別許諾)|
 
 ### 状態の定義
 - **Original**: 出典元から取得したままの未改造状態
@@ -57,6 +57,8 @@ btn_statは次の3値をとります．
 ## バージョン履歴
 - **v0.1.0 (2026-01-29)**
   - リポジトリの初期構成作成．
+- **v0.93.0 (2026-01-30)**
+  - app_main.c: TinyML教師ラベル付データ出力機能を実装．
 
 ## ライセンス
 本プログラムはマルチライセンスで構成されています．
