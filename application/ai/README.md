@@ -110,6 +110,12 @@ mtkernel_3/
 > **ヒント: NNの入出力構成について**  
 > NNを差し替える際，本サンプルと異なる入出力構成をとる場合は関連処理も適宜書き換えてください．  
 
+> [!TIP]
+> **ヒント: 実行直後の `HardFault` について**  
+> NN差替後に `HardFault` が発生する場合， `nnablart_mainruntime_allocate_context()` 実行時であれば，NNの入力サイズが過大な可能性があります．
+> NNCに戻りNNの構成見直しをして要求メモリサイズの圧縮を図ってください．  
+> `micro:bit v2.2` は，RAMサイズが128KBです．
+
 1. NNCでエクスポートした `c_source/` ディレクトリ内の次の4ファイルをeclipseのプロジェクトディレクトリ `app_sample/` に上書コピーしてください．  
  `MainRuntime_inference.c` 
  `MainRuntime_inference.h` 
