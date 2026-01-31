@@ -5,7 +5,7 @@
  * @author  T3 WG of TRON Forum (Original Author)
  * @author  Modified by ゆざ (@yuza-lab)
  * @version v0.93.0
- * @date    2025-03-07 (Created)
+ * @date    2025-03-07 (Modified)
  * @details
  * 【ライセンスに関する注意 / License Notice】
  * - 本ファイルは「TRONWARE VOL.207」 (パーソナルメディア刊) 掲載の記事コードをベースに改変したものです．
