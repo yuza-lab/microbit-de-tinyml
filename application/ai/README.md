@@ -11,7 +11,7 @@ TinyML‚Æ‚µ‚Ä [NNabla C Runtime](https://github.com/sony/nnabla-c-runtime/) ‚ğg—
 - ƒTƒ“ƒvƒ‹ƒvƒƒOƒ‰ƒ€‚Ì‹@”\‚ğÅ¬ŒÀ‚É—}‚¦‚Ä‚¨‚èCƒ†[ƒU“Æ©‚ÌƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ö—eˆÕ‚É’uŠ·‚Å‚«‚Ü‚·D
 
 ## ƒ\[ƒXƒR[ƒhŠÇ—ó‹µ
-> **Current Version: v0.1.0**  
+> **Current Version: v0.93.0**  
 > –{ƒo[ƒWƒ‡ƒ“‚É‚¨‚¯‚éå—vƒtƒ@ƒCƒ‹‚ÌŠÇ—ó‘Ô‚¨‚æ‚Ñƒ‰ƒCƒZƒ“ƒX‹æ•ª‚ÍˆÈ‰º‚Ì’Ê‚è‚Å‚·D
 
 | ƒtƒ@ƒCƒ‹–¼ | ó‘Ô (Status) | o“T / ”õl | ƒ‰ƒCƒZƒ“ƒX |
@@ -19,13 +19,18 @@ TinyML‚Æ‚µ‚Ä [NNabla C Runtime](https://github.com/sony/nnabla-c-runtime/) ‚ğg—
 | `iic.h` | **Original** | Personal Media Corporation (384_mbit_list.zip) / ¦Ä”z•z‚É‚Â‚¢‚ÄŒÂ•Ê‹–‘øÏ|(ŒÂ•Ê‹–‘ø)|
 | `iic_reg.c` | **Original** | Personal Media Corporation (384_mbit_list.zip) / ¦Ä”z•z‚É‚Â‚¢‚ÄŒÂ•Ê‹–‘øÏ|(ŒÂ•Ê‹–‘ø)|
 | `nrf5_iic.c` | **Original** | Personal Media Corporation (384_mbit_list.zip) / ¦Ä”z•z‚É‚Â‚¢‚ÄŒÂ•Ê‹–‘øÏ|(ŒÂ•Ê‹–‘ø)|
-| `app_main.c` | **Original** | T3 WG of TRON Forum (384_mbit_list.zip)  / ¦Ä”z•z‚É‚Â‚¢‚ÄŒÂ•Ê‹–‘øÏ|(ŒÂ•Ê‹–‘ø)|
-| `config.h` | **Original** | TRON Forum (release_30005, commit: c976801) | T-License 2.2 |
-| `syslib.h` | **Original** | TRON Forum (release_30005, commit: c976801) | T-License 2.2 |
-| `MainRuntime_inference.c` | **Original** | Sony Group Corporation / ©“®¶¬ (NNC v3.3.9140.33008) | Apache 2.0 |
+| `app_main.c` | **Modified** | T3 WG of TRON Forum (384_mbit_list.zip)  / ¦Ä”z•z‚É‚Â‚¢‚ÄŒÂ•Ê‹–‘øÏ|(ŒÂ•Ê‹–‘ø)|
+| `config.h` | **Modified** | TRON Forum (release_30005, commit: c976801) | T-License 2.2 |
+| `syslib.h` | **Modified** | TRON Forum (release_30005, commit: c976801) | T-License 2.2 |
+| `MainRuntime_inference.c` | **Modified** | Sony Group Corporation / ©“®¶¬ (NNC v3.3.9140.33008) | Apache 2.0 |
 | `MainRuntime_inference.h` | **Original** | Sony Group Corporation / ©“®¶¬ (NNC v3.3.9140.33008) | Apache 2.0 |
 | `MainRuntime_parameters.c` | **Original** | Sony Group Corporation / ©“®¶¬ (NNC v3.3.9140.33008) | Apache 2.0 |
 | `MainRuntime_parameters.h` | **Original** | Sony Group Corporation / ©“®¶¬ (NNC v3.3.9140.33008) | Apache 2.0 |
+| `pltm_fmath.c` | **New** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
+| `pltm_fmath.h` | **New** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
+| `pltm_malloc.h` | **New** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
+| `pltm_stat.h` | **New** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
+| `pltm_syscall.c` | **New** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
 
 ### ó‘Ô‚Ì’è‹`
 - **Original**: o“TŒ³‚©‚çæ“¾‚µ‚½‚Ü‚Ü‚Ì–¢‰ü‘¢ó‘Ô
@@ -53,8 +58,8 @@ GitHub‚æ‚è [nnabla-c-runtime-1.38.0.zip](https://github.com/sony/nnabla-c-runtim
 * **ƒRƒs[æ**: `mtkernel_3/include/nnablart/` (ƒfƒBƒŒƒNƒgƒŠ‚²‚ÆƒRƒs[)
 
 **B. ƒ\[ƒXƒR[ƒh‚Ì”z’u**
-* **ƒRƒs[Œ³**: `(“WŠJƒfƒBƒŒƒNƒgƒŠ)/src/` “à‚Ì‘Sƒf[ƒ^
-* **ƒRƒs[æ**: `mtkernel_3/lib/nnabla_c_runtime/`
+* **ƒRƒs[Œ³**: `(“WŠJƒfƒBƒŒƒNƒgƒŠ)/src/`
+* **ƒRƒs[æ**: `mtkernel_3/lib/nnabla_c_runtime/src/` (ƒfƒBƒŒƒNƒgƒŠ‚²‚ÆƒRƒs[)
   * ¦–‘O‚É `lib/` ƒfƒBƒŒƒNƒgƒŠ“à‚É `nnabla_c_runtime/` ƒfƒBƒŒƒNƒgƒŠ‚ğV‹Kì¬‚µ‚Ä‚­‚¾‚³‚¢D
 
 <details>
@@ -146,6 +151,10 @@ void (*rt_free_func)(void *ptr) = free;
 ## ƒo[ƒWƒ‡ƒ“—š—ğ
 - **v0.1.0 (2026-01-29)**
   - ƒŠƒ|ƒWƒgƒŠ‚Ì‰Šú\¬ì¬D
+- **v0.93.0 (2026-01-31)**
+  - MainRuntime_inference.c: uT-Kernel 3.0 ‚Ö‚Ì“K‡
+  - app_main.c: TinyMLp¨”»’èÀs‹@”\‚ğÀ‘•
+  - pltm_xxx.xxx: [Porting Layer for TinyML] ƒtƒ@ƒCƒ‹ŒQ’Ç‰Á(5 files)
 
 ## ƒ‰ƒCƒZƒ“ƒX
 –{ƒvƒƒOƒ‰ƒ€‚Íƒ}ƒ‹ƒ`ƒ‰ƒCƒZƒ“ƒX‚Å\¬‚³‚ê‚Ä‚¢‚Ü‚·D
