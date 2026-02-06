@@ -1,4 +1,27 @@
-# micro:bit de TinyML♪
+# micro:bit AI implementation with uT-Kernel & TinyML : micro:bit de TinyML♪
+
+[English Overview](#english-overview) | [日本語解説](#japanese-description)
+
+---
+
+<a name="english-overview"></a>
+## English Overview
+> **Note:** This section provides a brief **English Summary** of the project. For complete technical documentation and step-by-step instructions, please refer to the [Japanese section](#japanese-description) below.
+
+### Embedded AI (Machine Learning) on micro:bit (nRF52833)
+
+This project provides a practical example of **Artificial Intelligence (AI)** on the **micro:bit** platform. 
+By integrating **uT-Kernel (Real-Time OS)** and **Sony's Neural Network Libraries (nnabla)**, it demonstrates efficient **TinyML** inference on resource-constrained microcontrollers.
+
+**Key Technical Focus:**
+* **RTOS-based AI**: Managed inference tasks using uT-Kernel 3.0 for precise task control.
+* **Memory Optimization**: Efficient execution of quantized models within 128KB RAM.
+* **Evolution into TinyML App**: This repository bundles a straightforward AI-powered posture recognition sample, evolved from basic accelerometer data reading (based on magazine samples).
+
+---
+
+<a name="japanese-description"></a>
+## 日本語版解説 (Japanese Description)
 
 ## 概要
 本リポジトリは， [TRONプログラミングコンテスト2025](https://www.tron.org/ja/programming_contest-2025/programming_contest_2025_awards/) への出品作 **「micro:bit de TinyML♪」** を一般公開にあたり諸々改善したモノです．  
