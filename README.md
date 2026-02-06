@@ -11,7 +11,7 @@
 ### Embedded AI (Machine Learning) on micro:bit (nRF52833)
 
 This project provides a practical example of **Artificial Intelligence (AI)** on the **micro:bit** platform. 
-By integrating **uT-Kernel (Real-Time OS)** and **Sony's Neural Network Libraries (nnabla)**, it demonstrates efficient **TinyML** inference on resource-constrained microcontrollers.
+By integrating **uT-Kernel (Real-Time OS)** and **Sony's Neural Network Libraries (NNabla)**, it demonstrates efficient **TinyML** inference on resource-constrained microcontrollers.
 
 **Key Technical Focus:**
 * **RTOS-based AI**: Managed inference tasks using uT-Kernel 3.0 for precise task control.
