@@ -11,31 +11,33 @@ TinyML‚Æ‚µ‚Ä [NNabla C Runtime](https://github.com/sony/nnabla-c-runtime/) ‚ğg—
 - ƒTƒ“ƒvƒ‹ƒvƒƒOƒ‰ƒ€‚Ì‹@”\‚ğÅ¬ŒÀ‚É—}‚¦‚Ä‚¨‚èCƒ†[ƒU“Æ©‚ÌƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ö—eˆÕ‚É’uŠ·‚Å‚«‚Ü‚·D
 
 ## ƒ\[ƒXƒR[ƒhŠÇ—ó‹µ
-> **Current Version: v0.93.0**  
+> **Current Version: v0.93.1**  
 > –{ƒo[ƒWƒ‡ƒ“‚É‚¨‚¯‚éå—vƒtƒ@ƒCƒ‹‚ÌŠÇ—ó‘Ô‚¨‚æ‚Ñƒ‰ƒCƒZƒ“ƒX‹æ•ª‚ÍˆÈ‰º‚Ì’Ê‚è‚Å‚·D
 
 | ƒtƒ@ƒCƒ‹–¼ | ó‘Ô (Status) | o“T / ”õl | ƒ‰ƒCƒZƒ“ƒX |
 | :--- | :--- | :--- | :--- |
-| `iic.h` | **Original** | Personal Media Corporation (384_mbit_list.zip) / ¦Ä”z•z‚É‚Â‚¢‚ÄŒÂ•Ê‹–‘øÏ|(ŒÂ•Ê‹–‘ø)|
-| `iic_reg.c` | **Original** | Personal Media Corporation (384_mbit_list.zip) / ¦Ä”z•z‚É‚Â‚¢‚ÄŒÂ•Ê‹–‘øÏ|(ŒÂ•Ê‹–‘ø)|
-| `nrf5_iic.c` | **Original** | Personal Media Corporation (384_mbit_list.zip) / ¦Ä”z•z‚É‚Â‚¢‚ÄŒÂ•Ê‹–‘øÏ|(ŒÂ•Ê‹–‘ø)|
-| `app_main.c` | **Modified** | T3 WG of TRON Forum (384_mbit_list.zip)  / ¦Ä”z•z‚É‚Â‚¢‚ÄŒÂ•Ê‹–‘øÏ|(ŒÂ•Ê‹–‘ø)|
-| `config.h` | **Modified** | TRON Forum (release_30005, commit: c976801) | T-License 2.2 |
-| `syslib.h` | **Modified** | TRON Forum (release_30005, commit: c976801) | T-License 2.2 |
-| `MainRuntime_inference.c` | **Modified** | Sony Group Corporation / ©“®¶¬ (NNC v3.3.9140.33008) | Apache 2.0 |
-| `MainRuntime_inference.h` | **Original** | Sony Group Corporation / ©“®¶¬ (NNC v3.3.9140.33008) | Apache 2.0 |
-| `MainRuntime_parameters.c` | **Original** | Sony Group Corporation / ©“®¶¬ (NNC v3.3.9140.33008) | Apache 2.0 |
-| `MainRuntime_parameters.h` | **Original** | Sony Group Corporation / ©“®¶¬ (NNC v3.3.9140.33008) | Apache 2.0 |
-| `pltm_fmath.c` | **New** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
-| `pltm_fmath.h` | **New** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
-| `pltm_malloc.h` | **New** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
-| `pltm_stat.h` | **New** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
-| `pltm_syscall.c` | **New** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
+| `iic.h` | **-** | Personal Media Corporation (384_mbit_list.zip) / ¦Ä”z•z‚É‚Â‚¢‚ÄŒÂ•Ê‹–‘øÏ|(ŒÂ•Ê‹–‘ø)|
+| `iic_reg.c` | **-** | Personal Media Corporation (384_mbit_list.zip) / ¦Ä”z•z‚É‚Â‚¢‚ÄŒÂ•Ê‹–‘øÏ|(ŒÂ•Ê‹–‘ø)|
+| `nrf5_iic.c` | **-** | Personal Media Corporation (384_mbit_list.zip) / ¦Ä”z•z‚É‚Â‚¢‚ÄŒÂ•Ê‹–‘øÏ|(ŒÂ•Ê‹–‘ø)|
+| `app_main.c` | **-** | T3 WG of TRON Forum (384_mbit_list.zip)  / ¦Ä”z•z‚É‚Â‚¢‚ÄŒÂ•Ê‹–‘øÏ|(ŒÂ•Ê‹–‘ø)|
+| `config.h` | **-** | TRON Forum (release_30005, commit: c976801) | T-License 2.2 |
+| `syslib.h` | **-** | TRON Forum (release_30005, commit: c976801) | T-License 2.2 |
+| `MainRuntime_inference.c` | **-** | Sony Group Corporation / ©“®¶¬ (NNC v3.3.9140.33008) | Apache 2.0 |
+| `MainRuntime_inference.h` | **-** | Sony Group Corporation / ©“®¶¬ (NNC v3.3.9140.33008) | Apache 2.0 |
+| `MainRuntime_parameters.c` | **-** | Sony Group Corporation / ©“®¶¬ (NNC v3.3.9140.33008) | Apache 2.0 |
+| `MainRuntime_parameters.h` | **-** | Sony Group Corporation / ©“®¶¬ (NNC v3.3.9140.33008) | Apache 2.0 |
+| `pltm_fmath.c` | **Fixed** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
+| `pltm_fmath.h` | **Fixed** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
+| `pltm_malloc.h` | **-** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
+| `pltm_stat.h` | **-** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
+| `pltm_syscall.c` | **-** | ‚ä‚´ (@yuza-lab) | Apache 2.0 |
 
 ### ó‘Ô‚Ì’è‹`
 - **Original**: o“TŒ³‚©‚çæ“¾‚µ‚½‚Ü‚Ü‚Ì–¢‰ü‘¢ó‘Ô
 - **Modified**: o“TŒ³‚ÌƒR[ƒh‚ğƒx[ƒX‚ÉC–{ƒvƒƒOƒ‰ƒ€—p‚É‰ü•Ï‚ğÀ{
 - **New**: ‚ä‚´ (@yuza-lab) ‚É‚æ‚èV‹K‚É‘‚«‹N‚±‚³‚ê‚½ƒ\[ƒX
+- **Fixed**: ƒoƒOC³
+- **-**: •ÏXƒiƒV
 
 > **Note**: Šeƒtƒ@ƒCƒ‹‚Ì‹ï‘Ì“I‚Èƒ‰ƒCƒZƒ“ƒXğ€‚É‚Â‚¢‚Ä‚ÍCƒ\[ƒXƒtƒ@ƒCƒ‹–`“ª‚Ìƒwƒbƒ_ƒRƒƒ“ƒg‚ğ‚²Šm”F‚­‚¾‚³‚¢D
 
@@ -155,6 +157,8 @@ void (*rt_free_func)(void *ptr) = free;
   - MainRuntime_inference.c: uT-Kernel 3.0 ‚Ö‚Ì“K‡
   - app_main.c: TinyMLp¨”»’èÀs‹@”\‚ğÀ‘•
   - pltm_xxx.xxx: [Porting Layer for TinyML] ƒtƒ@ƒCƒ‹ŒQ’Ç‰Á(5 files)
+- **v0.93.1 (2026-08-24)**
+  - pltm_fmath.c/.h: expf()‚Ælogf()‚ğŠÈˆÕ”Å‚©‚ç¸“xŒüã”Å‚É·‘ÖClog10f()’Ç‰Á
 
 ## ƒ‰ƒCƒZƒ“ƒX
 –{ƒvƒƒOƒ‰ƒ€‚Íƒ}ƒ‹ƒ`ƒ‰ƒCƒZƒ“ƒX‚Å\¬‚³‚ê‚Ä‚¢‚Ü‚·D

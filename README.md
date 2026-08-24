@@ -32,7 +32,7 @@ TinyML‚Æ‚µ‚ÄSONYĞ‚ÌNeural Network Libraries(—ªÌ: NNabla / ‚æ‚İ: ‚È‚Ô‚ç)‚ÌƒI[ƒ
 ƒTƒ“ƒvƒ‹‚Æ‚µ‚ÄÀ‘•‚µ‚½micro:bit“à‘ ‰Á‘¬“xƒZƒ“ƒT‚ğ—˜—p‚µ‚½p¨”»’èƒAƒvƒŠ‚ÍCnnablart‚Ì–¢g—pŠÖ”‘gó‘Ô‚ÅROMg—p—Ê300KB–¢–cƒÊT-Kernel 3.0‚Ì¬ƒtƒbƒgƒvƒŠƒ“ƒg‚Æ‘Š‚Ü‚Á‚ÄƒAƒvƒŠŠJ”­Eƒ`ƒ…[ƒjƒ“ƒO‚Ì—]’n‚ğ\•ª‚Éc‚µ‚Ä‚¢‚Ü‚·D  
 ‚Ü‚½CBTRON‚Ö‚ÌˆÚA‚à‹–ì‚É“ü‚è‚Ü‚·D
 
-## ƒŠƒ|ƒŠƒgƒW\¬
+## ƒŠƒ|ƒWƒgƒŠ\¬
 ```text
 microbit-de-tinyml/
 „¥„Ÿ„Ÿ application/  <-- micro:bit—p
@@ -50,6 +50,8 @@ microbit-de-tinyml/
   - ƒŠƒ|ƒWƒgƒŠ‚Ì‰Šú\¬ì¬D
 - **v0.93.0 (2026-01-31)**
   - micro:bit de TinyMLô ˆê”ÊŒöŠJ‰”Å
+- **v0.93.1 (2026-08-24)**
+  - pltm_fmath.c/.h‚ğXVD
 
 ## ƒ‰ƒCƒZƒ“ƒX
 –{ƒvƒƒOƒ‰ƒ€‚Íƒ}ƒ‹ƒ`ƒ‰ƒCƒZƒ“ƒX‚Å\¬‚³‚ê‚Ä‚¢‚Ü‚·D

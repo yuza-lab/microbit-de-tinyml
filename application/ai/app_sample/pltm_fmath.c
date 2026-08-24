@@ -3,12 +3,12 @@
  * @brief   NNabla C Runtime 向け float 演算関数群の実装
  * Project: micro:bit de TinyML♪
  * @author  ゆざ (@yuza-lab)
- * @version v0.93.0
+ * @version v0.93.1
  * @date    2025-04-03 (Created)
  */
 
 /*
- * Copyright (c) 2025 ゆざ (@yuza-lab). All Rights Reserved.
+ * Copyright (c) 2025-2026 ゆざ (@yuza-lab). All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,14 +25,49 @@
 
 #include <tk/tkernel.h>
 
+// 単精度浮動小数点数をビット操作するための共用体
+typedef union {
+	float f;
+	UW i;
+} float_bits_t;
+
 EXPORT float expf(float x) {
-    float result = 1.0f;
-    float term = 1.0f;
-    for (int i = 1; i < 10; ++i) { // 10項まで計算 (精度に応じて調整)
-        term *= x / i;
-        result += term;
-    }
-    return result;
+	// 各種定数
+	const float LOG2E = 1.4426950408889634f;	// 1 / ln(2)
+	const float LN2_HI = 0.69314718f;			// ln(2) の上位ビット
+	const float LN2_LO = 1.90821493e-10f;		// ln(2) の下位ビット（精度確保用）
+
+	// 1. オーバーフロー・アンダーフローのクランプ処理 (SoftmaxのNaN発散対策)
+	if (x <= -87.33654f) return 0.0f;
+	if (x >= 88.72283f) return 3.4028234e38f;	// floatの最大値付近
+
+	// 2. レンジリダクション: x を k * ln(2) + r に分解する
+	// これにより，計算が難しい e^x を「2^k * e^r」に変換する．(r は非常に0に近い値になる)
+	float k_float = x * LOG2E;
+
+	int k;
+	if (k_float >= 0.0f) {
+		k = (int)(k_float + 0.5f);
+	} else {
+		k = (int)(k_float - 0.5f);
+	}
+
+	float k_f = (float)k;
+
+	// 精度落ちを防ぐため，ln(2)をHIとLOに分けて引き算
+	float r = (x - k_f * LN2_HI) - k_f * LN2_LO;
+
+	// 3. テイラー展開(マクローリン展開)の Horner法による多項式近似
+	// e^r ≒ 1 + r + r^2/2! + r^3/3! + r^4/4! + r^5/5!
+	float r2 = r * r;
+	float poly = 1.0f + r + r2 * (0.5f + r * (0.166666667f + r * (0.041666667f + r * 0.008333333f)));
+
+	// 4. 高速な 2^k の乗算 (IEEE754の指数部を直接足算して実現)
+	float_bits_t u;
+	u.f = poly;
+	u.i += ((UW)k << 23); // floatの指数部(23ビットシフト)にkを加算
+
+	return u.f;
 }
 
 
@@ -43,28 +78,31 @@ EXPORT float tanhf(float x) {
 
 
 EXPORT float logf(float x) {
-    // ここでは logf() の簡易的な実装例を示す
-    // 実際の logf() はより複雑な計算が必要
-    float result = 0.0f;
-    float term = (x - 1.0f) / x;
-    float power = term;
-    for (int i = 1; i < 10; ++i) {
-        result += power / i;
-        power *= term;
-    }
-    return result;
-}
+	if (x <= 0.0f) {
+		return -1e30f; // 負数・ゼロ対策（マイナス無限大の代わりに十分小さな値）
+	}
+	float_bits_t u;
+	u.f = x;
 
+	// 1. 指数部(Exponent)の抽出 (IEEE 754: ビット23〜30)
+	W e = (W)((u.i >> 23) & 0xFF) - 127;
 
-EXPORT float powf(float base, float exponent) {
-    return expf(exponent * logf(base));
-}
+	// 2. 仮数部(Mantissa)を [1.0, 2.0) の範囲に正規化
+	u.i = (u.i & 0x007FFFFF) | 0x3F800000;
+	float m = u.f;
 
+	// 3. 多項式近似による ln(m) の計算 (m は 1.0 〜 2.0 の範囲)
+	// 精度を上げるための多項式 (Remezアルゴリズム等による最適化の簡易版)
+	// y = (m - 1) / (m + 1) を使う方法などもあるが，今回はシンプルな多項式で構成
+	float t = (m - 1.0f) / (m + 1.0f);
+	float t2 = t * t;
 
-EXPORT float fabsf(float x) {
-    unsigned int *ptr = (unsigned int *)&x;
-    *ptr &= 0x7FFFFFFF; // 符号ビットをクリア
-    return x;
+	// 奇数次の項を展開 (ln((1+t)/(1-t)) = 2 * (t + t^3/3 + t^5/5 + ...))
+	float sum = t * (2.0f + t2 * (0.666666666f + t2 * (0.4f + t2 * 0.285714286f)));
+
+	// 4. 指数部を結合: ln(x) = ln(m) + e * ln(2)
+	LOCAL CONST float LN2 = 0.6931471805599453f;
+	return sum + (float)e * LN2;
 }
 
 
@@ -87,6 +125,26 @@ EXPORT float log2f(float x) {
     result += (float)mantissa / 0x800000;
 
     return result;
+}
+
+
+EXPORT float log10f(float x) {
+	// log10(x) = ln(x) / ln(10)
+	// 1.0f / ln(10) はコンパイル時定数として最適化される
+	LOCAL CONST float INV_LN10 = 0.4342944819032518f;
+	return logf(x) * INV_LN10;
+}
+
+
+EXPORT float powf(float base, float exponent) {
+    return expf(exponent * logf(base));
+}
+
+
+EXPORT float fabsf(float x) {
+    unsigned int *ptr = (unsigned int *)&x;
+    *ptr &= 0x7FFFFFFF; // 符号ビットをクリア
+    return x;
 }
 
 
